@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import Navbar from './Navbar';
+import { Link } from 'react-router-dom'
 
 
 const RegisterationForm = () => {
@@ -85,7 +86,7 @@ const RegisterationForm = () => {
 
     <p className="mt-10 text-center text-sm/6 text-gray-500">
       If you have Account
-      <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">Login</a>
+      <Link to='/login' className="font-semibold text-indigo-600 hover:text-indigo-500">Login</Link>
     </p>
   </div>
 </div>
