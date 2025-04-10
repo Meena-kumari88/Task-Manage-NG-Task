@@ -4,7 +4,7 @@ import Navbar from './Navbar'
 
 
 
-const LoginForm = () => {
+const LoginForm = ({setIsLoggedIn}) => {
   const navigate = useNavigate()
   const[isLogin, setIsLogin] = useState({
     email:'',
@@ -22,6 +22,8 @@ const LoginForm = () => {
     const prevData = JSON.parse(localStorage.getItem("users")) || []
     const validUser = prevData.find(user => user.email === isLogin.email && user.password === isLogin.password)
     if(validUser){
+      localStorage.setItem("isLoggedIn", "true")
+      setIsLoggedIn(true)
       navigate('/home')
     }else{
       alert("Invalid email or password")
@@ -33,7 +35,7 @@ const LoginForm = () => {
   }
   return (
     <div>
-       <Navbar/>
+       
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
   <div className="sm:mx-auto sm:w-full sm:max-w-sm">
     <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Sign in to your account</h2>
@@ -65,7 +67,11 @@ const LoginForm = () => {
       </div>
 
       <div>
-        <button type="submit" className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Login</button>
+        <button 
+        type="submit" 
+        className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+        Login
+        </button>
       </div>
     </form>
 

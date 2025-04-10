@@ -4,11 +4,14 @@ import { DarkModeContext } from "./DarkModeContext";
 import { useNavigate } from 'react-router-dom'
 
 
-const Navbar = () => {
+const Navbar = ({isLoggedIn, setIsLoggedIn}) => {
   const { darkMode, setDarkMode } = useContext(DarkModeContext);
    const navigate = useNavigate()
-  const handleLout = () =>{
-    navigate("/login")
+  const handleLogout = () =>{
+     console.log("Logging out...");
+    localStorage.removeItem("isLoggedIn")
+    setIsLoggedIn(false)
+   
   }
    
   return (
@@ -29,8 +32,15 @@ const Navbar = () => {
       </div>
       <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-12">
         <a href='' onClick={() =>setDarkMode(!darkMode)}>theme</a>
-      <Link to="/signUp" className="text-sm/6 font-semibold text-gray-900">Signup</Link>
-      <Link to="/login" className="text-sm/6 font-semibold text-gray-900">Login</Link>
+        {!isLoggedIn && (
+        <Link to="/signUp" className="text-sm/6 font-semibold text-gray-900">Signup</Link>
+       )}
+      {isLoggedIn ? (
+  <Link to='/login' onClick={handleLogout} className="text-sm/6 font-semibold text-gray-900">Logout</Link>
+) : (
+  <Link to="/login" className="text-sm/6 font-semibold text-gray-900">Login</Link>
+)}
+
       </div>
     </nav>
     {/* <!-- Mobile menu, show/hide based on menu open state. --> */}

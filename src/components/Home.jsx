@@ -88,7 +88,7 @@ const Home = () => {
   }
   return (
    <>
-   <Navbar/>
+  
 <div className="flex flex-wrap min-h-screen bg-gradient-to-br from-gray-100 via-white to-blue-100 p-6 mt-[4rem]">
   {/* Pending Task Section */}
   <div className="w-full md:w-1/2 p-4">

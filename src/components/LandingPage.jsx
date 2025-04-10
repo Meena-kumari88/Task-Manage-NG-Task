@@ -8,10 +8,8 @@ const LandingPage = () => {
 
   return (
     <>
-    <Navbar/>
+    
     <div className={`${darkMode ? "bg-slate-900 text-white" : "bg-gradient-to-br from-gray-100 via-white to-blue-100 text-gray-900"} h-[100vh]`}>
-  
-
   <div className="relative isolate px-6  lg:px-8">
     <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-26">
       <div className="hidden sm:mb-8 sm:flex sm:justify-center">
